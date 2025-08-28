@@ -1,1 +1,17 @@
+---
+# Playbook Name: create_test_directory.yml
+# Purpose: Create a test directory on remote servers
 
+- name: Create Test Directory Example
+  hosts: all                     # Target all hosts in the inventory
+  become: yes                    # Run with sudo/root privileges
+  gather_facts: yes              # Collect system facts
+
+  tasks:
+    - name: Ensure the test directory exists
+      ansible.builtin.file:
+        path: /tmp/testdir        # Directory path to create
+        state: directory          # Ensure it's a directory
+        owner: ansible            # Set the owner (replace with your user if needed)
+        group: ansible            # Set the group (replace with your group)
+        mode: '0755'              # Permissions (drwxr-xr-x)
