@@ -3,7 +3,7 @@
 # Purpose: Create a test directory on remote servers
 
 - name: Create Test Directory Example
-  hosts: all                     # Target all hosts in the inventory
+  hosts: 10.2.10.43                  # Target all hosts in the inventory
   become: yes                    # Run with sudo/root privileges
   gather_facts: yes              # Collect system facts
 
